@@ -17,7 +17,7 @@ jobs:
             cd workspace
             mkdir -p build-mac
             cd build-mac
-            cmake ...
+            cmake ../..
             make
       - persist_to_workspace:
             root: workspace
