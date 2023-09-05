@@ -3,8 +3,7 @@ jobs:
   
   init-workspace:
     steps:
-      - run:
-        mkdir -p workspace
+      - run: mkdir -p workspace
   build-mac:
     macos:
       xcode: 12.5.1
