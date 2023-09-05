@@ -20,7 +20,7 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - /workspace/build-mac
+            - workspace/build-mac
       - run:
           name: debug - mac after
           command: ls -l /workspace
@@ -40,7 +40,7 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - /workspace/build-windows
+            - workspace/build-windows
 
   deploy-mac:
     machine: true
