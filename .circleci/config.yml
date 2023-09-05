@@ -8,7 +8,7 @@ jobs:
       - run:
           name: debug - mac
           command: |
-            ls
+            ls -p .. | grep '/$'
             ls -l /workspace
             
       - run:
