@@ -8,7 +8,6 @@ jobs:
       - run:
           name: Build for macOS
           command: |
-            mkdir -p workspace
             brew update
             brew install cmake
             mkdir -p build-mac
@@ -16,9 +15,7 @@ jobs:
             cmake ..
             make
       - persist_to_workspace:
-          root: /workspace
-          paths:
-            - build-mac
+          root: /build-mac
 
   build-windows:
     docker:
@@ -48,8 +45,8 @@ jobs:
             cd /workspace/build-mac
             git clone https://github.com/ваш_пользователь/HWorld_mac.git
             cd HWorld_mac
-            git config user.name "Your Name"
-            git config user.email "your@email.com"
+            git config user.name "es.naglfar"
+            git config user.email "es.naglfar@gmail.com"
             git add .
             git commit -m "Deploy macOS build"
             git push origin main
