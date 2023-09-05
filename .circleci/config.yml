@@ -1,5 +1,10 @@
 version: 2.1
 jobs:
+  
+  init-workspace:
+    steps:
+      - run:
+        mkdir -p workspace
   build-mac:
     macos:
       xcode: 12.5.1
