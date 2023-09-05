@@ -8,6 +8,8 @@ jobs:
       - run:
           name: Build
           command: |
+            brew update
+            brew install cmake
             mkdir build
             cd build
             cmake ..
