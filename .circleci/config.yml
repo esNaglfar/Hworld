@@ -1,9 +1,5 @@
 version: 2.1
 jobs:
-  
-  init-workspace:
-    steps:
-      - run: mkdir -p workspace
   build-mac:
     macos:
       xcode: 12.5.1
@@ -12,6 +8,7 @@ jobs:
       - run:
           name: Build for macOS
           command: |
+            mkdir -p workspace
             brew update
             brew install cmake
             mkdir -p build-mac
@@ -78,7 +75,6 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - init-workspace
       - build-mac
       - build-windows
       - deploy-mac:
