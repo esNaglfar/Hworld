@@ -39,7 +39,11 @@ jobs:
           name: Deploy to Hworld-mac repository
           command: |
             # Создать новый репозиторий и отправить туда результат
+            ls
+            echo '-----'
             git clone https://github.com/esNaglfar/HWorld_mac.git
+            echo '-----'
+            ls
             cd Hworld_mac
             git config user.email "es.naglfar@gmail.com"
             git config user.name "esNaglfar
