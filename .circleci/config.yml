@@ -7,7 +7,9 @@ jobs:
       - checkout
       - run:
           name: debug - mac
-          command: ls -l /workspace
+          command: |
+            ls
+            ls -l /workspace
             
       - run:
           name: Build for macOS
