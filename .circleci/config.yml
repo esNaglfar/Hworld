@@ -1,90 +1,37 @@
 version: 2.1
 jobs:
-  build-mac:
+  build:
     macos:
-      xcode: 12.5.1
+      xcode: 12.5.1 # Версия Xcode
     steps:
-      - checkout
+      - checkout # Клонировать репозиторий
       - run:
-          name: Create Workspace Directory
-          command: mkdir -p workspace/build-mac
-      - run:
-          name: Build for macOS
+          name: Build
           command: |
-            brew update
-            brew install cmake
-            mkdir -p build-mac
-            cd build-mac
+            mkdir build
+            cd build
             cmake ..
             make
-      - persist_to_workspace:
-          root: /
-          paths:
-            - workspace
+            # Переместить скомпилированный файл в другой каталог
+            mv main ../
+            cd ..
 
-  build-windows:
+  deploy:
     docker:
-      - image: mcr.microsoft.com/windows/servercore:ltsc2019
+      - image: circleci/python:3.7 # Может потребоваться установить git
     steps:
-      - checkout
+      - checkout # Клонировать репозиторий
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
-          name: Create Workspace Directory
-          command: mkdir workspace/build-windows
-      - run:
-          name: Build for Windows
+          name: Deploy to Hworld-mac repository
           command: |
-            mkdir C:\build-windows
-            cd C:\build-windows
-            cmake C:\Builded
-            cmake --build .
-      - persist_to_workspace:
-          root: /
-          paths:
-            - workspace
-
-  deploy-mac:
-    machine: true
-    steps:
-      - attach_workspace:
-          at: /
-      - run:
-          name: Deploy to HWorld_mac
-          command: |
-            cd /workspace/build-mac
-            git clone https://github.com/ваш_пользователь/HWorld_mac.git
-            cd HWorld_mac
-            git config user.name "es.naglfar"
+            # Создать новый репозиторий и отправить туда результат
+            git clone https://github.com/esNaglfar/Hworld-mac.git
+            cd Hworld-mac
             git config user.email "es.naglfar@gmail.com"
-            git add .
-            git commit -m "Deploy macOS build"
-            git push origin main
-
-  deploy-windows:
-    machine: true
-    steps:
-      - attach_workspace:
-          at: /
-      - run:
-          name: Deploy to HWorld_win64
-          command: |
-            cd /workspace/build-windows
-            git clone https://github.com/ваш_пользователь/HWorld_win64.git
-            cd HWorld_win64
-            git config user.name "Your Name"
-            git config user.email "your@email.com"
-            git add .
-            git commit -m "Deploy Windows build"
-            git push origin main
-
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build-mac
-      - build-windows
-      - deploy-mac:
-          requires:
-            - build-mac
-      - deploy-windows:
-          requires:
-            - build-windows
+            git config user.name "esNaglfar
+            cp ../main .
+            git add main
+            git commit -m "Add compiled binary for MacOS"
+            git push origin master
