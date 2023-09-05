@@ -11,14 +11,9 @@ jobs:
             ls
             mkdir -p workspace
             ls
-            brew update
-            brew install cmake
-            mkdir -p build-mac
-            cd build-mac
-            cmake ..
-            make
+
       - persist_to_workspace:
-          root: /
+          root: /workspace
           paths:
             - workspace/build-mac
       - run:
@@ -38,7 +33,7 @@ jobs:
             cmake C:\Builded
             cmake --build .
       - persist_to_workspace:
-          root: /
+          root: /workspace
           paths:
             - workspace/build-windows
 
