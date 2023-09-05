@@ -57,7 +57,7 @@ jobs:
             cd workspace
             ls
             cd build-mac
-            git clone https://github.com/ваш_пользователь/HWorld_mac.git
+            git clone https://github.com/esNaglfar/HWorld_mac.git
             cd HWorld_mac
             git config user.name "esNaglfar"
             git config user.email "es.naglfar@gmail.com"
