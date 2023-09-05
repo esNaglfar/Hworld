@@ -14,8 +14,6 @@ jobs:
             cd build
             cmake ..
             make
-            # Переместить скомпилированный файл в другой каталог
-            mv main ../
             cd ..
 
   deploy:
