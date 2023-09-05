@@ -52,6 +52,8 @@ jobs:
       - run:
           name: Deploy to HWorld_mac
           command: |
+            pdw
+            ls
             cd /workspace/build-mac
             git clone https://github.com/ваш_пользователь/HWorld_mac.git
             cd HWorld_mac
