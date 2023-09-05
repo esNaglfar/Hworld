@@ -6,11 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Create Workspace Directory
-          command: mkdir -p /workspace
-      - run:
           name: Build for macOS
           command: |
+            mkdir -p workspace
             brew update
             brew install cmake
             mkdir -p build-mac
