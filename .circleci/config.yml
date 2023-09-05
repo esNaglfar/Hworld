@@ -46,12 +46,12 @@ jobs:
     machine: true
     steps:
       - attach_workspace:
-          at: /workspace
+          at: /
       - run:
           name: Deploy to HWorld_mac
           command: |
             cd /workspace/build-mac
-            git clone https://github.com/esNaglfar/HWorld_mac.git
+            git clone https://github.com/ваш_пользователь/HWorld_mac.git
             cd HWorld_mac
             git config user.name "es.naglfar"
             git config user.email "es.naglfar@gmail.com"
@@ -63,12 +63,12 @@ jobs:
     machine: true
     steps:
       - attach_workspace:
-          at: /workspace
+          at: /
       - run:
           name: Deploy to HWorld_win64
           command: |
             cd /workspace/build-windows
-            git clone https://github.com/esNaglfar/HWorld_win64.git
+            git clone https://github.com/ваш_пользователь/HWorld_win64.git
             cd HWorld_win64
             git config user.name "Your Name"
             git config user.email "your@email.com"
