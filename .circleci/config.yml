@@ -16,6 +16,8 @@ jobs:
             make
       - persist_to_workspace:
           root: /workspace
+          paths:
+            - build-mac
 
   build-windows:
     docker:
