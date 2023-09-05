@@ -15,7 +15,7 @@ jobs:
             cmake ..
             make
       - persist_to_workspace:
-          root: /build-mac
+          root: /workspace
 
   build-windows:
     docker:
