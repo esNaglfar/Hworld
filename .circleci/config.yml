@@ -44,7 +44,7 @@ jobs:
             git clone https://github.com/esNaglfar/HWorld_mac.git
             echo '-----'
             ls
-            cd Hworld_mac
+            cd HWorld_mac
             git config user.email "es.naglfar@gmail.com"
             git config user.name "esNaglfar
             cp ../build .
