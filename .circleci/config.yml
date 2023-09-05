@@ -26,6 +26,7 @@ jobs:
             echo '-----'
             cd ..
             ls
+            pwd
             echo '-----'
 
   deploy:
@@ -44,12 +45,14 @@ jobs:
             git clone https://github.com/esNaglfar/HWorld_mac.git
             echo '-----'
             ls
+            pwd
             cd HWorld_mac
+            pwd
             git config user.email "es.naglfar@gmail.com"
             git config user.name "esNaglfar
             cp ../build .
             echo '-----'
-            ls
+            pwd
             echo '-----'
             git add test_app
             git commit -m "Add compiled binary for MacOS"
