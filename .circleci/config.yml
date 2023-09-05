@@ -48,7 +48,7 @@ jobs:
             pwd
             git config user.email "es.naglfar@gmail.com"
             git config user.name "esNaglfar
-            cp ../build .
+            cp -r ../build .
             echo '-----'
             pwd
             echo '-----'
