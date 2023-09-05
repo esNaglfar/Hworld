@@ -20,9 +20,9 @@ jobs:
             cmake ..
             make
       - persist_to_workspace:
-        root: /workspace
-        paths:
-          - /build-mac
+            root: /workspace
+            paths: 
+              - /build-mac
 
   build-windows:
     docker:
@@ -40,8 +40,9 @@ jobs:
             cmake C:\Builded
             cmake --build .
       - persist_to_workspace:
+          root: /workspace
           paths:
-            - workspace/build-windows
+            - /build-windows
 
   deploy-mac:
     machine: true
