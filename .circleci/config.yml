@@ -40,7 +40,7 @@ jobs:
           command: |
             # Создать новый репозиторий и отправить туда результат
             git clone https://github.com/esNaglfar/HWorld_mac.git
-            cd Hworld-mac
+            cd Hworld_mac
             git config user.email "es.naglfar@gmail.com"
             git config user.name "esNaglfar
             cp ../build .
