@@ -8,13 +8,25 @@ jobs:
       - run:
           name: Build
           command: |
+            ls
+            echo '-----'
             brew update
             brew install cmake
             mkdir build
+            ls
+            echo '-----'
             cd build
+            ls
+            echo '-----'
             cmake ..
+            ls
+            echo '-----'
             make
+            ls
+            echo '-----'
             cd ..
+            ls
+            echo '-----'
 
   deploy:
     docker:
@@ -35,3 +47,12 @@ jobs:
             git add main
             git commit -m "Add compiled binary for MacOS"
             git push origin master
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
