@@ -22,7 +22,7 @@ jobs:
       - persist_to_workspace:
             root: workspace
             paths: 
-              - /build-mac
+              - build-mac
 
   build-windows:
     docker:
@@ -42,7 +42,7 @@ jobs:
       - persist_to_workspace:
           root: workspace
           paths:
-            - /build-windows
+            - build-windows
 
   deploy-mac:
     machine: true
