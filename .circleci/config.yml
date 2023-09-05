@@ -8,7 +8,9 @@ jobs:
       - run:
           name: Build for macOS
           command: |
+            ls
             mkdir -p workspace
+            ls
             brew update
             brew install cmake
             mkdir -p build-mac
