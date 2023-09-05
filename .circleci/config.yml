@@ -6,12 +6,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: debug - mac
-          command: |
-            ls -p .. | grep '/$'
-            ls -l /workspace
-            
-      - run:
           name: Build for macOS
           command: |
             brew update
@@ -21,9 +15,9 @@ jobs:
             cmake ..
             make
       - persist_to_workspace:
-          root: /workspace
+          root: /
           paths:
-            - build-mac
+            - /workspace
       - run:
           name: debug - mac after
           command: ls -l /workspace
@@ -41,9 +35,9 @@ jobs:
             cmake C:\Builded
             cmake --build .
       - persist_to_workspace:
-          root: /workspace
+          root: /
           paths:
-            - build-windows
+            - /workspace
 
   deploy-mac:
     machine: true
