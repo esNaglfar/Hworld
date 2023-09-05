@@ -6,13 +6,10 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install CMake
-        command: |
-          brew update
-          brew install cmake
-      - run:
           name: Build for macOS
           command: |
+            brew update
+            brew install cmake
             mkdir -p build-mac
             cd build-mac
             cmake ..
