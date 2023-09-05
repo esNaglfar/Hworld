@@ -54,7 +54,9 @@ jobs:
           command: |
             pwd
             ls
-            cd /workspace/build-mac
+            cd workspace
+            ls
+            cd build-mac
             git clone https://github.com/ваш_пользователь/HWorld_mac.git
             cd HWorld_mac
             git config user.name "esNaglfar"
