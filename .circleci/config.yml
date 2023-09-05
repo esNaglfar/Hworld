@@ -48,7 +48,10 @@ jobs:
             git config user.email "es.naglfar@gmail.com"
             git config user.name "esNaglfar
             cp ../build .
-            git add main
+            echo '-----'
+            ls
+            echo '-----'
+            git add test_app
             git commit -m "Add compiled binary for MacOS"
             git push origin master
 
