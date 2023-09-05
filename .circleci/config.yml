@@ -6,11 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Create Workspace Directory
+          command: mkdir -p workspace/build-mac
+      - run:
           name: Build for macOS
           command: |
-            ls
-            mkdir -p workspace
-            ls
             brew update
             brew install cmake
             mkdir -p build-mac
@@ -18,18 +18,18 @@ jobs:
             cmake ..
             make
       - persist_to_workspace:
-          root: workspace
+          root: /
           paths:
             - workspace/build-mac
-      - run:
-          name: debug - mac after
-          command: ls -l /workspace
 
   build-windows:
     docker:
       - image: mcr.microsoft.com/windows/servercore:ltsc2019
     steps:
       - checkout
+      - run:
+          name: Create Workspace Directory
+          command: mkdir workspace/build-windows
       - run:
           name: Build for Windows
           command: |
@@ -38,7 +38,7 @@ jobs:
             cmake C:\Builded
             cmake --build .
       - persist_to_workspace:
-          root: workspace
+          root: /
           paths:
             - workspace/build-windows
 
@@ -51,7 +51,7 @@ jobs:
           name: Deploy to HWorld_mac
           command: |
             cd /workspace/build-mac
-            git clone https://github.com/ваш_пользователь/HWorld_mac.git
+            git clone https://github.com/esNaglfar/HWorld_mac.git
             cd HWorld_mac
             git config user.name "es.naglfar"
             git config user.email "es.naglfar@gmail.com"
@@ -68,7 +68,7 @@ jobs:
           name: Deploy to HWorld_win64
           command: |
             cd /workspace/build-windows
-            git clone https://github.com/ваш_пользователь/HWorld_win64.git
+            git clone https://github.com/esNaglfar/HWorld_win64.git
             cd HWorld_win64
             git config user.name "Your Name"
             git config user.email "your@email.com"
