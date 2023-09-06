@@ -57,7 +57,10 @@ jobs:
             cd workspace
             ls
             git clone https://esNaglfar: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@github.com/esNaglfar/HWorld_mac.git
+            
             cd HWorld_mac
+            git remote set-url origin https://esNaglfar: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@github.com/esNaglfar/HWorld_mac.git
+
             cp -r ../build-mac/* .
             git config user.name "esNaglfar"
             git config user.email "es.naglfar@gmail.com"
