@@ -65,8 +65,10 @@ jobs:
             git config user.email "es.naglfar@gmail.com"
             git add .
             git commit -m "Deploy macOS build"
+            git config --list
+            echo '------'
             git remote set-url origin https://esNaglfar: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@github.com/esNaglfar/HWorld_mac.git
-
+            git config --list
             git push origin main
 
   deploy-windows:
